@@ -85,7 +85,6 @@ export async function getAllPosts(filterParams?: {
   search?: string;
 }): Promise<Post[]> {
   const query: Record<string, any> = {
-    _embed: true,
     per_page: 100,
   };
 
@@ -150,7 +149,8 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 }
 
 export async function getAllCategories(): Promise<Category[]> {
-  const url = getUrl("/wp-json/wp/v2/categories");
+  const url = getUrl("/wp-json/wp/v2/categories?per_page=100");
+  console.log(url);
   const response = await wordpressFetch<Category[]>(url, {
     next: {
       ...defaultFetchOptions.next,
