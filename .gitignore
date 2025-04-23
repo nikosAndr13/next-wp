@@ -8,6 +8,7 @@
 
 #env-variables
 .env.example
+.env.local
 
 # testing
 /coverage
